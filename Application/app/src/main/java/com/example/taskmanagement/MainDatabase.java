@@ -8,12 +8,20 @@ import androidx.annotation.Nullable;
 
 public class MainDatabase extends SQLiteOpenHelper {
 
+    public static final String table_name = "MAIN_ACTIVITY";
+    public static final String table_column_ID = "ID";
+    public static final String table_column_TITLE = "Title";
+    public static final String table_column_DATE = "Date";
+    public static final String table_column_TIME = "Time";
+
     public MainDatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context, "main-activity.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String createTable = "CREATE TABLE IF NOT EXISTS " + table_name + " (" + table_column_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + table_column_TITLE + " TEXT, " + table_column_DATE + " VARCHAR, " + table_column_TIME + " VARCHAR)";
+        db.execSQL(createTable);
 
     }
 
