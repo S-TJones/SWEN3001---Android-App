@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/add_activity_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:autofillHints="Go for a Walk"
+        android:hint="@string/activity_name_hint"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_daily"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="155dp"
+            android:padding="4dp"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_weekly"
+            android:padding="4dp"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_monthly"
+            android:padding="4dp"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_custom"
+            android:padding="4dp"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
