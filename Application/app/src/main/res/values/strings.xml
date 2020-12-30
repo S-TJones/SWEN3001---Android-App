@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Task Management</string>
+    <string name="Open">Task Management</string>
+    <string name="Close">Task Management</string>
 </resources>
