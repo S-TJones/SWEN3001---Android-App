@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class MainDatabase extends SQLiteOpenHelper {
+public class MainTaskDatabase extends SQLiteOpenHelper {
 
     public static final String table_name = "MAIN_ACTIVITY";
     public static final String table_column_ID = "ID";
@@ -14,7 +14,7 @@ public class MainDatabase extends SQLiteOpenHelper {
     public static final String table_column_DATE = "Date";
     public static final String table_column_TIME = "Time";
 
-    public MainDatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public MainTaskDatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, "main-activity.db", null, 1);
     }
 
