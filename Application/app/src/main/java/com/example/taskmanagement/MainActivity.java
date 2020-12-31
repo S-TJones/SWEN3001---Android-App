@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.view.View;
+import android.widget.Toast;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +23,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Instantiate XML components
         listView = findViewById(R.id.list_view);
+
+        // Floating Button
+        FloatingActionButton addButton = findViewById(R.id.add_activity);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
+
+
 }
