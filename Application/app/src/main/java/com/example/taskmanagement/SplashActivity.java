@@ -13,8 +13,6 @@ import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
-
     // Variables
     Animation topAnimation, bottomAnimation;
     ImageView appImage;
@@ -25,6 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
         setContentView(R.layout.activity_main);
 
@@ -43,6 +42,7 @@ public class SplashActivity extends AppCompatActivity {
         appSlogan.setAnimation(bottomAnimation);
 
 
+        int SPLASH_SCREEN = 5000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
