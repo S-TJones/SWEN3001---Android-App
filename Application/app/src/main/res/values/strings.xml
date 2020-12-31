@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Task Management</string>
     <string name="submit">Add Activity</string>
+    <string name="add_task">Adds a new Task to Database</string>
 </resources>
