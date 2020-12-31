@@ -14,35 +14,39 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DrawerLayout dl;
-    private ActionBarDrawerToggle t;
-    private NavigationView nv;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionToggle;
+    private NavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dl = (DrawerLayout)findViewById(R.id.activity_main);
-        t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
+        drawerLayout = (DrawerLayout)findViewById(R.id.activity_main);
+        actionToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.Open, R.string.Close);
 
-        dl.addDrawerListener(t);
-        t.syncState();
+        drawerLayout.addDrawerListener(actionToggle);
+        actionToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        nv = (NavigationView)findViewById(R.id.nv);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navView = (NavigationView)findViewById(R.id.nv);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
+                final int alarms = 1000308;
+                final int reminders = 1000234;
+                final int settings = 1000257;
+
                 switch(id)
                 {
-                    case R.id.alarms:
+                    case alarms:
                         Toast.makeText(MainActivity.this, "Alarms",Toast.LENGTH_SHORT).show();break;
-                    case R.id.reminders:
+                    case reminders:
                         Toast.makeText(MainActivity.this, "Reminders",Toast.LENGTH_SHORT).show();break;
-                    case R.id.settings:
+                    case settings:
                         Toast.makeText(MainActivity.this, "Settings",Toast.LENGTH_SHORT).show();break;
                     default:
                         return true;
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(t.onOptionsItemSelected(item))
+        if(actionToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
