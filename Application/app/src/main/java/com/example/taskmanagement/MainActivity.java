@@ -3,6 +3,7 @@ package com.example.taskmanagement;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,15 +25,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        drawerLayout = (DrawerLayout)findViewById(R.id.activity_main);
-        actionToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.Open, R.string.Close);
 
+        // Floating Button on Main Activity --------------------
+        FloatingActionButton addButton = findViewById(R.id.add_activity);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // -----------------------------------------------------
+
+
+        // Nav-Bar on Main Activity ----------------------------------------------------------------
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.activity_main);
+        actionToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
+        
         drawerLayout.addDrawerListener(actionToggle);
         actionToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        navView = (NavigationView)findViewById(R.id.nv);
+        // Navigation View
+        NavigationView navView = (NavigationView) findViewById(R.id.nv);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -52,16 +68,15 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                 }
 
-
                 return true;
 
             }
         });
-
+        // -----------------------------------------------------------------------------------------
 
     }
 
-
+    // Determines when an item is selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -69,5 +84,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
 
         return super.onOptionsItemSelected(item);
+
     }
+
+
 }

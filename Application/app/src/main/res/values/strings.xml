@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Task Management</string>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <string name="app_slogan">Helping you, Mange your activities!</string>
+=======
     <string name="Open">Task Management</string>
     <string name="Close">Task Management</string>
+>>>>>>> 4af60394d658f0ddc6825432c8c1673289f39b6c
+=======
+    <string name="submit">Add Activity</string>
+>>>>>>> b367c9ac405987237c72fd8a1fe67ac4c8884139
 </resources>
