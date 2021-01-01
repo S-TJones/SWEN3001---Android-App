@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // Nav-Bar on Main Activity ----------------------------------------------------------------
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.activity_main);
         actionToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
-        
+
         drawerLayout.addDrawerListener(actionToggle);
         actionToggle.syncState();
 
