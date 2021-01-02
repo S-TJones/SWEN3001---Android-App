@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Instantiate XML components
-        listView = findViewById(R.id.list_view);
+//        listView = findViewById(R.id.list_view);
 
         // Floating Button on Main Activity --------------------
         FloatingActionButton addButton = findViewById(R.id.add_activity);
