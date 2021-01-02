@@ -19,6 +19,7 @@ import com.example.taskmanagement.Classes.SubTask;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SubTaskActivity extends AppCompatActivity {
@@ -34,12 +35,21 @@ public class SubTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_task);
 //        getSupportActionBar().hide();
 
+        // Initialize the list
+        taskList = new ArrayList<>();
+
         subTaskRV = findViewById(R.id.recycler_view);
         subTaskRV.setLayoutManager(new LinearLayoutManager(this));
         taskAdapter = new SubTaskAdapter(this);
         subTaskRV.setAdapter(taskAdapter);
 
         // Dummy Data
+//        SubTask example = new SubTask(1, 1);
+//        example.setSub_task("Wash the dishes.");
+//        example.setStatus(0);
+//        taskList.add(example);
+
+        taskAdapter.setSubTaskList(taskList);
     }
 
 }

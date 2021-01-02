@@ -44,6 +44,11 @@ public class SubTaskAdapter extends RecyclerView.Adapter<SubTaskAdapter.ViewHold
         return subTaskList.size();
     }
 
+    public void setSubTaskList(List<SubTask> taskList){
+        this.subTaskList = taskList;
+        notifyDataSetChanged();
+    }
+
     // ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder{
         CheckBox subTask;
