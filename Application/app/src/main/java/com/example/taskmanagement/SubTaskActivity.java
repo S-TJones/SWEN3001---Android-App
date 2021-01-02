@@ -14,12 +14,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.taskmanagement.Adapter.SubTaskAdapter;
+import com.example.taskmanagement.Classes.SubTask;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
 
 public class SubTaskActivity extends AppCompatActivity {
 
     private RecyclerView subTaskRV;
+    private SubTaskAdapter taskAdapter;
+
+    private List<SubTask> taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,10 @@ public class SubTaskActivity extends AppCompatActivity {
 
         subTaskRV = findViewById(R.id.recycler_view);
         subTaskRV.setLayoutManager(new LinearLayoutManager(this));
+        taskAdapter = new SubTaskAdapter(this);
+        subTaskRV.setAdapter(taskAdapter);
+
+        // Dummy Data
     }
 
 }
