@@ -21,11 +21,11 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        getSupportActionBar().hide();
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
-        setContentView(R.layout.activity_main);
 
         // Animations
         topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animation);

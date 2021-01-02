@@ -8,16 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
-        android:theme="@style/Theme.TaskManagement" >
-        <activity android:name=".AddActivity" >
-        </activity>
-        <activity android:name=".MainActivity" >
-=======
-        android:theme="@style/Theme.TaskManagement">
 
+        android:theme="@style/Theme.TaskManagement">
         <activity android:name=".SplashActivity">
->>>>>>> Nav-Bar
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
