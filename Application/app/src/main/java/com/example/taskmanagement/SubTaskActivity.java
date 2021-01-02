@@ -12,12 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.taskmanagement.Adapter.SubTaskAdapter;
 import com.example.taskmanagement.Classes.AddNewSubTask;
 import com.example.taskmanagement.Classes.DialogCloseListener;
+import com.example.taskmanagement.Classes.RecyclerItemTouchHelper;
 import com.example.taskmanagement.Classes.SubTask;
 import com.example.taskmanagement.Database.SubTaskDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -54,6 +56,9 @@ public class SubTaskActivity extends AppCompatActivity implements DialogCloseLis
         subTaskRV.setAdapter(taskAdapter);
 
         fab = findViewById(R.id.add_activity);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(taskAdapter));
+        itemTouchHelper.attachToRecyclerView(subTaskRV);
 
         // Dummy Data
 //        SubTask example = new SubTask(1, 1);

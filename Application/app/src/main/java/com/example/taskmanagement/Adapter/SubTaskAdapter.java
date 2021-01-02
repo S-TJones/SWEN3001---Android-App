@@ -1,5 +1,6 @@
 package com.example.taskmanagement.Adapter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +65,17 @@ public class SubTaskAdapter extends RecyclerView.Adapter<SubTaskAdapter.ViewHold
     public void setSubTaskList(List<SubTask> taskList){
         this.subTaskList = taskList;
         notifyDataSetChanged();
+    }
+
+    public Context getContext(){
+        return mainActivity;
+    }
+
+    public void deleteItem(int position){
+        SubTask item = subTaskList.get(position);
+        db.deleteSubTask(item.getId());
+        subTaskList.remove(position);
+        notifyItemRemoved(position);
     }
 
     public void editItem(int position){
