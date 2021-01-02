@@ -25,13 +25,13 @@ public class SubTaskDatabase extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
 
-    public SubTaskDatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public SubTaskDatabase(Context context) {
         super(context, DB_NAME, null, VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + table_name + " (" + table_column_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + table_column_NAME + " TEXT, " + table_column_STATUS + " INTEGER)";
+        String createTable = "CREATE TABLE " + table_name + " (" + table_column_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + table_column_MainID + " INTEGER, " + table_column_NAME + " TEXT, " + table_column_STATUS + " INTEGER)";
         db.execSQL(createTable);
 
     }

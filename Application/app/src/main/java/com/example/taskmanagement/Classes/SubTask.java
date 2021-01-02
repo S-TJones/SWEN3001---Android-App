@@ -9,6 +9,10 @@ public class SubTask {
         this.id = id;
     }
 
+    public SubTask(){
+
+    }
+
     public int getMain_id() {
         return main_id;
     }
