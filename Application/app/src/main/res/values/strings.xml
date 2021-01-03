@@ -10,6 +10,14 @@
     <string name="radio_weekly">Weekly</string>
     <string name="radio_monthly">Monthly</string>
     <string name="radio_custom">Custom</string>
+    // New Buttons for the week
+    <string name="Sun">Sunday</string>
+    <string name="Mon">Monday</string>
+    <string name="Tue">Tuesday</string>
+    <string name="Wed">Wednesday</string>
+    <string name="Thu">Thursday</string>
+    <string name="Fri">Friday</string>
+    <string name="Sat">Saturday</string>
 
     <string name="submit">Add Activity</string>
     <string name="add_task">Adds a new Task to Database</string>

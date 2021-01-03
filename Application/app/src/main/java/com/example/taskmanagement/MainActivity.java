@@ -1,25 +1,26 @@
 package com.example.taskmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.view.View;
 import android.widget.Toast;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // The Buttons and EditText goes here
-    EditText enterTitle;
-    EditText dateString; // Idk if it accepts it as a Date data-type or String
-    EditText time; // ^ Same as above, Time data-type or String
-    ListView listView;
+    // XML components go here
+    RecyclerView recyclerView;
+
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionToggle;
     private NavigationView navView;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Instantiate XML components
-//        listView = findViewById(R.id.list_view);
+        recyclerView = findViewById(R.id.recycler_view);
 
         // Floating Button on Main Activity --------------------
         FloatingActionButton addButton = findViewById(R.id.add_activity);
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+
+                // Should load the AddActivity when clicked
+                Intent addMainTask = new Intent(getApplicationContext(), AddActivity.class);
+                startActivity(addMainTask);
             }
         });
         // -----------------------------------------------------
@@ -65,11 +70,14 @@ public class MainActivity extends AppCompatActivity {
                 switch(id)
                 {
                     case alarms:
-                        Toast.makeText(MainActivity.this, "Alarms",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(MainActivity.this, "Alarms",Toast.LENGTH_SHORT).show();
+                        break;
                     case reminders:
-                        Toast.makeText(MainActivity.this, "Reminders",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(MainActivity.this, "Reminders",Toast.LENGTH_SHORT).show();
+                        break;
                     case settings:
-                        Toast.makeText(MainActivity.this, "Settings",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(MainActivity.this, "Settings",Toast.LENGTH_SHORT).show();
+                        break;
                     default:
                         return true;
                 }

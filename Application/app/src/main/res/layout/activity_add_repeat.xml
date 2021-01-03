@@ -63,4 +63,5 @@
             android:padding="4dp"
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
