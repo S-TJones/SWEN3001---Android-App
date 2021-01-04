@@ -7,61 +7,82 @@
     android:layout_height="match_parent">
 
 
-    <EditText
-        android:id="@+id/add_activity_edit_text"
+    <TextView
+        android:id="@+id/enterDays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:autofillHints="Go for a Walk"
-        android:hint="@string/activity_name_hint"
-        android:inputType="text"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/enter_days"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.875"
+        tools:layout_editor_absoluteX="0dp" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:gravity="center"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="398dp"
+        android:layout_height="396dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
-        android:padding="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/enterDays">
 
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/Sunday"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/radio_daily"
-            tools:layout_editor_absoluteX="151dp"
-            tools:layout_editor_absoluteY="155dp"
-            android:padding="4dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="@string/Sun" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/Monday"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/radio_weekly"
-            android:padding="4dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="@string/Mon" />
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/Tuesday"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/radio_monthly"
-            android:padding="4dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="@string/Tue"/>
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/Thursday"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/radio_custom"
-            android:padding="4dp"
-            android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>
+            android:onClick="onCheckboxClicked"
+            android:text="@string/Thu"/>
+
+        <CheckBox
+            android:id="@+id/Friday"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/Fri"/>
+
+        <CheckBox
+            android:id="@+id/Saturday"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/Sat"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.586" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

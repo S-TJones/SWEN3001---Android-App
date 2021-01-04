@@ -31,36 +31,67 @@
 
 
     <EditText
-        android:id="@+id/editTextTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:autofillHints="3:00pm"
+        android:id="@+id/editTextHour"
+        android:layout_width="124dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="12dp"
+        android:autofillHints="3"
         android:ems="10"
         android:hint="@string/time_hint"
-        android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/editTextMins"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
-    <CheckBox
+    <EditText
+        android:id="@+id/editTextMins"
+        android:layout_width="124dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="12dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/time_hint"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/switch2"
+        app:layout_constraintStart_toEndOf="@+id/editTextHour"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <Switch
+        android:id="@+id/AMorPM"
+        android:layout_width="80dp"
+        android:switchMinWidth="80dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="24dp"
+        android:textOn="AM"
+        android:textOff="PM"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <Button
         android:id="@+id/repeat_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="120dp"
         android:text="@string/repeat_checkbox_text"
+        app:layout_constraintBottom_toTopOf="@+id/activity_screen3_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editTextTime"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/activity_screen3_button"
         android:layout_width="269dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="24dp"
         android:drawableEnd="@drawable/arrow_right"
         android:drawablePadding="4dp"
         android:text="@string/screen3_button_text"

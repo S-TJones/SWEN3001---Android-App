@@ -2,7 +2,7 @@
     <string name="app_name">Task Management</string>
     <string name="activity_name_hint">Enter Activity Name</string>
     <string name="screen3_button_text">Add sub-Activity</string>
-    <string name="repeat_checkbox_text">Repeat or Nah?</string>
+    <string name="repeat_checkbox_text">Enter Days</string>
     <string name="time_hint">Enter A Time</string>
 
     //For the Radio Buttons
@@ -24,4 +24,5 @@
     <string name="app_slogan">Helping you, Mange your activities!</string>
     <string name="Open">Task Management</string>
     <string name="Close">Task Management</string>
+    <string name="enter_days">Enter the days for the Task</string>
 </resources>

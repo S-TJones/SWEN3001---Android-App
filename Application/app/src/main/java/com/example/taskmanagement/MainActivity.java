@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
@@ -13,13 +16,19 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.taskmanagement.Classes.MainTask;
+import com.example.taskmanagement.Database.MainTaskDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     // XML components go here
-    RecyclerView recyclerView;
+//    RecyclerView recyclerView;
+    ListView recyclerView;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionToggle;
@@ -32,6 +41,27 @@ public class MainActivity extends AppCompatActivity {
 
         // Instantiate XML components
         recyclerView = findViewById(R.id.recycler_view);
+
+        // Display Tasks ---------------------------------------------------------
+        MainTaskDatabase mainTaskDatabase = new MainTaskDatabase(MainActivity.this);
+        showTasksOnListView(mainTaskDatabase);
+
+        // OnClickListener for List-items
+        recyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                MainTask selectedTask = (MainTask) parent.getItemAtPosition(position);
+//                mainTaskDatabase.deleteOneMainTask(selectedTask);
+//                showTasksOnListView(mainTaskDatabase);
+
+                // Should load the SubActivity when clicked
+                Intent subTaskActivity = new Intent(getApplicationContext(), SubTaskActivity.class);
+                startActivity(subTaskActivity);
+
+                Toast.makeText(MainActivity.this, "Task selected", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // -----------------------------------------------------------------------
 
         // Floating Button on Main Activity --------------------
         FloatingActionButton addButton = findViewById(R.id.add_activity);
@@ -88,6 +118,14 @@ public class MainActivity extends AppCompatActivity {
         });
         // -----------------------------------------------------------------------------------------
 
+    }
+
+    // Shows Tasks
+    public void showTasksOnListView(MainTaskDatabase mainTaskDatabase){
+        List<MainTask> mainTasks = mainTaskDatabase.getAllMainTasks();
+
+        ArrayAdapter mainTaskArrayAdapter = new ArrayAdapter<MainTask>(MainActivity.this, android.R.layout.simple_list_item_1, mainTasks);
+        recyclerView.setAdapter(mainTaskArrayAdapter);
     }
 
     // Determines when an item is selected
