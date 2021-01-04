@@ -23,7 +23,7 @@ public class AddActivity extends AppCompatActivity {
     Switch dayOrNight;
     CalendarView calendar;
     String taskDate;
-
+//nope
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,9 @@ public class AddActivity extends AppCompatActivity {
         dayOrNight = findViewById(R.id.AMorPM);
         addTaskButton = findViewById(R.id.activity_screen3_button);
         addDaysButton = findViewById(R.id.repeat_checkbox);
-
+        calendar = findViewById(R.id.calendarView);
+        //sweet. Nah / LOOOl @ labels
+        //we mave to add the transaction to the backstack. I think it saves state. Where do we do the switch?
         // When a day is selected on the Calendar
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -86,6 +88,7 @@ public class AddActivity extends AppCompatActivity {
                 // Should load the MainActivity when clicked
                 Intent saveMainTask = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(saveMainTask);
+                finish();
             }
         });
 
@@ -93,6 +96,9 @@ public class AddActivity extends AppCompatActivity {
         addDaysButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent saveMainTask = new Intent(getApplicationContext(), AddRepeatActivity.class);
+                startActivity(saveMainTask);
+
 
             }
         });

@@ -12,7 +12,7 @@ import com.example.taskmanagement.Classes.SubTask;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//where is the btn
 public class SubTaskDatabase extends SQLiteOpenHelper {
 
     public static final int VERSION = 1;
@@ -95,3 +95,5 @@ public class SubTaskDatabase extends SQLiteOpenHelper {
         db.delete(table_column_NAME, table_column_ID + "=?", new String[] {String.valueOf(id)});
     }
 }
+
+

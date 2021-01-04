@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
+//clicking save I think- after trying to add a sub activity
 public class SubTaskActivity extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView subTaskRV;
@@ -47,8 +47,14 @@ public class SubTaskActivity extends AppCompatActivity implements DialogCloseLis
 
         // Initialize the list and DB
         taskList = new ArrayList<>();
-        db = new SubTaskDatabase(this);
-        db.openDatabase();
+        try {
+            db = new SubTaskDatabase(this);
+            db.openDatabase();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         subTaskRV = findViewById(R.id.recycler_view);
         subTaskRV.setLayoutManager(new LinearLayoutManager(this));

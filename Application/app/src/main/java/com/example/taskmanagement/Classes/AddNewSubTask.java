@@ -102,6 +102,7 @@ public class AddNewSubTask extends BottomSheetDialogFragment {
                     SubTask task = new SubTask();
                     task.setSub_task(text);
                     task.setStatus(0);
+                    db.insertSubTask(task);
                 }
                 dismiss();
             }

@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:hint="Add Sub-Task"/>
+        android:hint=" Add Sub-Task"/>
 
     <Button
         android:id="@+id/newSubTask"

@@ -24,6 +24,10 @@ public class MainTaskDatabase extends SQLiteOpenHelper {
     public static final String table_column_TIME = "Time";
     public static final String table_column_HOUR = "Hour";
     public static final String table_column_MINUTE = "Minute";
+    public static final String table_column_MainID = "MainID"; // Remember to add this as primary key
+    public static final String table_column_SID = "ID";
+    public static final String table_column_NAME = "Name";
+    public static final String table_column_STATUS = "Status";
 
     public MainTaskDatabase(@Nullable Context context) {
         super(context, DB_NAME, null, VERSION);
@@ -48,7 +52,7 @@ public class MainTaskDatabase extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         // Makes key-value pairs
-        contentValues.put(table_column_ID, mainTask.getId());
+        //contentValues.put(table_column_ID, mainTask.getId());
         contentValues.put(table_column_TITLE, mainTask.getTitle());
         contentValues.put(table_column_DATE, mainTask.getDate());
         contentValues.put(table_column_TIME, mainTask.getTime());

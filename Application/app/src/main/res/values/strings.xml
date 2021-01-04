@@ -5,6 +5,12 @@
     <string name="repeat_checkbox_text">Enter Days</string>
     <string name="time_hint">Enter A Time</string>
 
+    //%1$s! The crime was discovered on %2$s, and %3$s, and %4$s
+    //For the Main Activity List Items
+    <string name="activity_title">%1$s</string>
+    <string name="activity_time">$s</string>
+    <string name="activity_date">%2$s</string>
+
     //For the Radio Buttons
     <string name="radio_daily">Daily</string>
     <string name="radio_weekly">Weekly</string>
@@ -25,4 +31,5 @@
     <string name="Open">Task Management</string>
     <string name="Close">Task Management</string>
     <string name="enter_days">Enter the days for the Task</string>
+
 </resources>
