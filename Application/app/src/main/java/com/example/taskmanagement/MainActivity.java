@@ -120,13 +120,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     // Shows Tasks
     public void showTasksOnListView(MainTaskDatabase mainTaskDatabase){
         List<MainTask> mainTasks = mainTaskDatabase.getAllMainTasks();
 
         ArrayAdapter mainTaskArrayAdapter = new ArrayAdapter<MainTask>(MainActivity.this, android.R.layout.simple_list_item_1, mainTasks);
         recyclerView.setAdapter(mainTaskArrayAdapter);
+
     }
+
 
     // Determines when an item is selected
     @Override
@@ -138,6 +141,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
-
-
 }
