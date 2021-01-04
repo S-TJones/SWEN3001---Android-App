@@ -19,7 +19,7 @@ public class SubTaskDatabase extends SQLiteOpenHelper {
     public static final String DB_NAME = "taskManagementDatabase";
     public static final String table_name = "Sub_Tasks";
     public static final String table_column_MainID = "MainID"; // Remember to add this as primary key
-    public static final String table_column_ID = "ID";
+    public static final String table_column_SID = "SID";
     public static final String table_column_NAME = "Name";
     public static final String table_column_STATUS = "Status";
 
@@ -31,7 +31,7 @@ public class SubTaskDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + table_name + " (" + table_column_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + table_column_MainID + " INTEGER, " + table_column_NAME + " TEXT, " + table_column_STATUS + " INTEGER)";
+        String createTable = "CREATE TABLE " + table_name + " (" + table_column_SID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + table_column_MainID + " INTEGER, " + table_column_NAME + " TEXT, " + table_column_STATUS + " INTEGER)";
         db.execSQL(createTable);
 
     }
@@ -64,7 +64,7 @@ public class SubTaskDatabase extends SQLiteOpenHelper {
         try (Cursor cursor = db.query(table_name, null, null, null, null, null, null, null)) {
             if (cursor.moveToFirst()) {
                 do {
-                    SubTask task = new SubTask(0, cursor.getInt(cursor.getColumnIndex(table_column_ID)));
+                    SubTask task = new SubTask(0, cursor.getInt(cursor.getColumnIndex(table_column_SID)));
                     task.setSub_task(cursor.getString(cursor.getColumnIndex(table_column_NAME)));
                     task.setStatus(cursor.getInt(cursor.getColumnIndex(table_column_STATUS)));
                     taskList.add(task);
@@ -82,17 +82,17 @@ public class SubTaskDatabase extends SQLiteOpenHelper {
     public void updateStatus(int id, int status){
         ContentValues cv =  new ContentValues();
         cv.put(table_column_STATUS, status);
-        db.update(table_name, cv, table_column_ID + "=?", new String[] {String.valueOf(id)});
+        db.update(table_name, cv, table_column_SID + "=?", new String[] {String.valueOf(id)});
     }
 
     public void updateSubTask(int id, String newName){
         ContentValues cv =  new ContentValues();
         cv.put(table_column_NAME, newName);
-        db.update(table_name, cv, table_column_ID + "=?", new String[] {String.valueOf(id)});
+        db.update(table_name, cv, table_column_SID + "=?", new String[] {String.valueOf(id)});
     }
 
     public void deleteSubTask(int id){
-        db.delete(table_column_NAME, table_column_ID + "=?", new String[] {String.valueOf(id)});
+        db.delete(table_column_NAME, table_column_SID + "=?", new String[] {String.valueOf(id)});
     }
 }
 

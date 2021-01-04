@@ -21,6 +21,7 @@ import com.example.taskmanagement.Classes.AddNewSubTask;
 import com.example.taskmanagement.Classes.DialogCloseListener;
 import com.example.taskmanagement.Classes.RecyclerItemTouchHelper;
 import com.example.taskmanagement.Classes.SubTask;
+import com.example.taskmanagement.Database.MainTaskDatabase;
 import com.example.taskmanagement.Database.SubTaskDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -37,7 +38,7 @@ public class SubTaskActivity extends AppCompatActivity implements DialogCloseLis
     private FloatingActionButton fab;
 
     private List<SubTask> taskList;
-    private SubTaskDatabase db;
+    private MainTaskDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class SubTaskActivity extends AppCompatActivity implements DialogCloseLis
         // Initialize the list and DB
         taskList = new ArrayList<>();
         try {
-            db = new SubTaskDatabase(this);
+            db = new MainTaskDatabase(this);
             db.openDatabase();
 
         } catch (Exception e) {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.taskmanagement.Classes.AddNewSubTask;
 import com.example.taskmanagement.Classes.SubTask;
+import com.example.taskmanagement.Database.MainTaskDatabase;
 import com.example.taskmanagement.Database.SubTaskDatabase;
 import com.example.taskmanagement.R;
 import com.example.taskmanagement.SubTaskActivity;
@@ -22,10 +23,10 @@ public class SubTaskAdapter extends RecyclerView.Adapter<SubTaskAdapter.ViewHold
 
     private List<SubTask> subTaskList;
     private SubTaskActivity mainActivity;
-    private SubTaskDatabase db;
+    private MainTaskDatabase db;
 
     // Constructor
-    public SubTaskAdapter(SubTaskDatabase db, SubTaskActivity mainActivity){
+    public SubTaskAdapter(MainTaskDatabase db, SubTaskActivity mainActivity){
         this.mainActivity = mainActivity;
         this.db = db;
     }
@@ -37,7 +38,7 @@ public class SubTaskAdapter extends RecyclerView.Adapter<SubTaskAdapter.ViewHold
         return new ViewHolder(itemView);
     }
 
-    public void  onBindViewHolder(ViewHolder holder, int position){
+    public void onBindViewHolder(ViewHolder holder, int position){
         db.openDatabase();
         SubTask item = subTaskList.get(position);
         holder.subTask.setText(item.getSub_task());
