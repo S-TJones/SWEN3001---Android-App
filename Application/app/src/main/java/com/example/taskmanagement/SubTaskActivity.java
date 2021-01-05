@@ -38,7 +38,7 @@ public class SubTaskActivity extends AppCompatActivity implements DialogCloseLis
     private FloatingActionButton fab;
 
     private List<SubTask> taskList;
-    private MainTaskDatabase db;
+    private SubTaskDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class SubTaskActivity extends AppCompatActivity implements DialogCloseLis
         // Initialize the list and DB
         taskList = new ArrayList<>();
         try {
-            db = new MainTaskDatabase(this);
+            db = new SubTaskDatabase(this);
             db.openDatabase();
 
         } catch (Exception e) {

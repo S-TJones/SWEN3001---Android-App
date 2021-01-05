@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.example.taskmanagement.Database.MainTaskDatabase;
+import com.example.taskmanagement.Database.SubTaskDatabase;
 import com.example.taskmanagement.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -27,7 +28,7 @@ public class AddNewSubTask extends BottomSheetDialogFragment {
 
     private EditText newSubTaskName;
     private Button newSubTaskSaveButton;
-    private MainTaskDatabase db;
+    private SubTaskDatabase db;
 
     public static AddNewSubTask newInstance(){
         return new AddNewSubTask();
@@ -53,7 +54,7 @@ public class AddNewSubTask extends BottomSheetDialogFragment {
         newSubTaskName = getView().findViewById(R.id.sub_task_name);
         newSubTaskSaveButton = getView().findViewById(R.id.newSubTask);
 
-        db = new MainTaskDatabase(getActivity());
+        db = new SubTaskDatabase(getActivity());
         db.openDatabase();
 
         boolean isUpdate = false;

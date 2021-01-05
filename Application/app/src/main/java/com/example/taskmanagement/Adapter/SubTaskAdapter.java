@@ -23,10 +23,10 @@ public class SubTaskAdapter extends RecyclerView.Adapter<SubTaskAdapter.ViewHold
 
     private List<SubTask> subTaskList;
     private SubTaskActivity mainActivity;
-    private MainTaskDatabase db;
+    private SubTaskDatabase db;
 
     // Constructor
-    public SubTaskAdapter(MainTaskDatabase db, SubTaskActivity mainActivity){
+    public SubTaskAdapter(SubTaskDatabase db, SubTaskActivity mainActivity){
         this.mainActivity = mainActivity;
         this.db = db;
     }

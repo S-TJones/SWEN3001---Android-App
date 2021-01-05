@@ -16,7 +16,7 @@ import java.util.List;
 public class SubTaskDatabase extends SQLiteOpenHelper {
 
     public static final int VERSION = 1;
-    public static final String DB_NAME = "taskManagementDatabase";
+    public static final String DB_NAME = "subTaskManagementDatabase";
     public static final String table_name = "Sub_Tasks";
     public static final String table_column_MainID = "MainID"; // Remember to add this as primary key
     public static final String table_column_SID = "SID";

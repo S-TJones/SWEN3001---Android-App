@@ -51,7 +51,7 @@ public class MainTaskDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop the old table to create a new one
         db.execSQL("DROP TABLE IF EXISTS " + table_name);
-        db.execSQL("DROP TABLE IF EXISTS " + table_name);
+        db.execSQL("DROP TABLE IF EXISTS " + table_name2);
 
         // Create the new table
         onCreate(db);
@@ -143,25 +143,35 @@ public class MainTaskDatabase extends SQLiteOpenHelper {
     }
 
     public List<SubTask> getAllTasks(){
-        List<SubTask> taskList = new ArrayList<>();
+        List<SubTask> mainTaskList = new ArrayList<>();
 
-        db.beginTransaction();
-        try (Cursor cursor = db.query(table_name2, null, null, null, null, null, null, null)) {
-            if (cursor.moveToFirst()) {
-                do {
-                    SubTask task = new SubTask(0, cursor.getInt(cursor.getColumnIndex(table_column_SID)));
-                    task.setSub_task(cursor.getString(cursor.getColumnIndex(table_column_NAME)));
-                    task.setStatus(cursor.getInt(cursor.getColumnIndex(table_column_STATUS)));
-                    taskList.add(task);
-                } while (cursor.moveToNext());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            db.endTransaction();
+        // query to get from Database
+        String queryString = "SELECT * FROM " + table_name2;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                int taskID = cursor.getInt(cursor.getColumnIndex(table_column_SID));
+                String taskName = cursor.getString(cursor.getColumnIndex(table_column_NAME));
+                int  taskStatus = cursor.getInt(cursor.getColumnIndex(table_column_STATUS));
+
+                SubTask newMainTask = new SubTask(1,taskID);
+                newMainTask.setSub_task(taskName);
+                newMainTask.setStatus(taskStatus);
+                mainTaskList.add(newMainTask);
+
+            } while (cursor.moveToNext());
+
+        } else {
+            // Do nothing
         }
 
-        return taskList;
+        // Close the Database and Cursor
+        cursor.close();
+        db.close();
+        return mainTaskList;
     }
 
     public void updateStatus(int id, int status){
